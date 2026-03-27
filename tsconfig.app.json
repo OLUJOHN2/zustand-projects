@@ -28,6 +28,8 @@
     "src",
     "1. Note App",
     "2. Recipe book/RecipeApp.tsx",
-    "2. Recipe book/Storee.tsx"
+    "2. Recipe book/Storee.tsx",
+    "3. Expense tracker/ExpenseTracker.tsx",
+    "3. Expense tracker/Store.tsx"
   ]
 }
