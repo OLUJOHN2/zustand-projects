@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useStore } from "../src/components/store";
+// import { useStore } from "../src/components/Store";
 
 function Meals() {
   const { meals, searchQuery, setMeals, setSearchQuery } = useStore();
