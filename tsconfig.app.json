@@ -37,6 +37,9 @@
     "6. Todo list/Store.tsx",
     "6. Todo list/TodoList.tsx",
     "7. Note/Store.tsx",
-    "7. Note/Sidebar.tsx"
+    "7. Note/Sidebar.tsx",
+    "8. Task list app/MainArea.tsx",
+    "8. Task list app/Sidebar.tsx",
+    "8. Task list app/Store.tsx"
   ]
 }

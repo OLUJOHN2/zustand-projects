@@ -1,59 +1,24 @@
-import { FaPlus } from "react-icons/fa";
-import { useStore } from "./Store";
+import { FaCheckCircle } from "react-icons/fa";
+import useQuizStore from "./useQuizStore";
 
 const Sidebar = () => {
-  const { lists, workspaces, openListModal, openWorkspaceModal } = useStore();
+  const { questions, currentQuestion } = useQuizStore();
 
   return (
-    <div className="w-60 bg-[#F9F9F9] flex flex-col">
-      <div className="flex-1 overflow-y-auto">
-        <div className="p-4">
-          <h3 className="text-lg font-semibold flex items-center">Lists</h3>
-          {/* Render Lists */}
-          <ul>
-            {lists.map((list, index) => (
-              <li
-                key={index}
-                className="p-2 hover:bg-[#ccc] rounded-lg
-                 cursor-pointer flex items-center"
-              >
-                <span className="mr-2">{list.emoji}</span>
-                {list.name}
-              </li>
-            ))}
-          </ul>
-          <button
-            onClick={openListModal}
-            className="flex justify-center items-center mt-[1rem]"
-          >
-            <FaPlus className="mr-2" /> List
-          </button>
-        </div>
-        <div className="p-4">
-          <h3 className="text-lg font-semibold flex items-center">
-            Workspaces
-          </h3>
-          {/* Render Workspaces */}
-          <ul>
-            {workspaces.map((workspace, index) => (
-              <li
-                key={index}
-                className="p-2 hover:bg-[#ccc] rounded-lg 
-                cursor-pointer flex items-center"
-              >
-                <span className="mr-2">{workspace.emoji}</span>
-                {workspace.name}
-              </li>
-            ))}
-          </ul>
-          <button
-            onClick={openWorkspaceModal}
-            className="flex justify-center items-center mt-[1rem]"
-          >
-            <FaPlus className="mr-2" /> Workspace
-          </button>
-        </div>
-      </div>
+    <div className="w-1/4 bg-gray-100 p-4">
+      <h2 className="text-xl font-bold mb-4">Quiz Progress</h2>
+      <ul>
+        {questions.map((_, index) => (
+          <li key={index} className="mb-2 flex items-center">
+            <FaCheckCircle
+              className={`mr-2 ${
+                index <= currentQuestion ? "text-green-500" : "text-gray-400"
+              }`}
+            />
+            <span>Question {index + 1}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
