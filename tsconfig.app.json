@@ -30,6 +30,9 @@
     "2. Recipe book/RecipeApp.tsx",
     "2. Recipe book/Storee.tsx",
     "3. Expense tracker/ExpenseTracker.tsx",
-    "3. Expense tracker/Store.tsx"
+    "3. Expense tracker/Store.tsx",
+    "5. Form Builder/FormBuilder.tsx",
+    "4. Meals project/store.tsx",
+    "5. Form Builder/Store.tsx"
   ]
 }
