@@ -40,6 +40,14 @@
     "7. Note/Sidebar.tsx",
     "8. Task list app/MainArea.tsx",
     "8. Task list app/Sidebar.tsx",
-    "8. Task list app/Store.tsx"
+    "8. Task list app/Store.tsx",
+    "9. Quiz app/Question.tsx",
+    "9. Quiz app/QuizLayout.tsx",
+    "9. Quiz app/Sidebar.tsx",
+    "9. Quiz app/useQuizStore.ts",
+    "10. watch app/store.ts",
+    "10. watch app/Sidebar.tsx",
+    "10. watch app/data.ts",
+    "10. watch app/Navigation.tsx"
   ]
 }

@@ -1,29 +1,29 @@
-import React from "react";
-import NotesApp from "../1. Note App/NotesApp";
-import RecipeApp from "../2. Recipe book/RecipeApp";
-import ExpenseTracker from "../3. Expense tracker/ExpenseTracker";
-import Meals from "../4. Meals project/Meals";
-import FormBuilder from "../5. Form Builder/FormBuilder";
-import TodoList from "../6. Todo list/TodoList";
-import Sidebar from "../7. Note/Sidebar";
-import QuizLayout from "./components/QuizLayout";
+// import React from "react";
+// import NotesApp from "../1. Note App/NotesApp";
+// import RecipeApp from "../2. Recipe book/RecipeApp";
+// import ExpenseTracker from "../3. Expense tracker/ExpenseTracker";
+// import Meals from "../4. Meals project/Meals";
+// import FormBuilder from "../5. Form Builder/FormBuilder";
+// import TodoList from "../6. Todo list/TodoList";
+// import Sidebar from "../7. Note/Sidebar";
+// import QuizLayout from "../9. Quiz app/QuizLayout";
 
-const App = () => {
-  return (
-    <div>
-      {/* <NotesApp /> */}
-      {/* <RecipeApp /> */}
-      {/* <ExpenseTracker /> */}
-      {/* <Meals /> */}
-      {/* <FormBuilder /> */}
-      {/* <TodoLi<st /> */}
-      {/* <Sidebar /> */}
-      <QuizLayout />
-    </div>
-  );
-};
+// const App = () => {
+//   return (
+//     <div>
+//       {/* <NotesApp /> */}
+//       {/* <RecipeApp /> */}
+//       {/* <ExpenseTracker /> */}
+//       {/* <Meals /> */}
+//       {/* <FormBuilder /> */}
+//       {/* <TodoLi<st /> */}
+//       {/* <Sidebar /> */}
+//       <QuizLayout />
+//     </div>
+//   );
+// };
 
-export default App;
+// export default App;
 
 // import Sidebar from "../8. Task list app/Sidebar";
 // import MainArea from "../8. Task list app/MainArea";
@@ -127,3 +127,50 @@ export default App;
 // }
 
 // export default App;
+
+import ProductCard from "./components/ProductCard";
+import { data } from "../10. watch app/data";
+import Sidebar from "../10. watch app/Sidebar";
+import { useFilterStore } from "../10. watch app/store";
+
+interface Product {
+  id: string;
+  country: string;
+  img: Record<string, string>;
+  price: number;
+}
+
+const App = () => {
+  const { selectedCountries, selectedColors, selectedPriceRange } =
+    useFilterStore((state) => state);
+
+  const filteredData = data.filter((item: Product) => {
+    const matchesColor =
+      selectedColors.length === 0 ||
+      Object.keys(item.img).some((color) => selectedColors.includes(color));
+
+    const matchesCountry =
+      selectedCountries.length === 0 ||
+      selectedCountries.includes(item.country);
+
+    const matchesPrice = selectedPriceRange
+      ? item.price >= selectedPriceRange.min &&
+        item.price <= selectedPriceRange.max
+      : true;
+
+    return matchesColor && matchesCountry && matchesPrice;
+  });
+
+  return (
+    <>
+      <Sidebar />
+      <div className="p-4 flex flex-wrap justify-center items-center">
+        {filteredData.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+    </>
+  );
+};
+
+export default App;
