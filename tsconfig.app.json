@@ -33,6 +33,8 @@
     "3. Expense tracker/Store.tsx",
     "5. Form Builder/FormBuilder.tsx",
     "4. Meals project/store.tsx",
-    "5. Form Builder/Store.tsx"
+    "5. Form Builder/Store.tsx",
+    "6. Todo list/Store.tsx",
+    "6. Todo list/TodoList.tsx"
   ]
 }
