@@ -35,6 +35,8 @@
     "4. Meals project/store.tsx",
     "5. Form Builder/Store.tsx",
     "6. Todo list/Store.tsx",
-    "6. Todo list/TodoList.tsx"
+    "6. Todo list/TodoList.tsx",
+    "7. Note/Store.tsx",
+    "7. Note/Sidebar.tsx"
   ]
 }
